@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -46,14 +45,14 @@ public class FightManager : MonoBehaviour
         //defaulting to draw 
         Character winner = lhs, defeated = rhs;
         Debug.LogWarning("Attack called, needs to use character stats to determine winner with win strength from 1 to -1. This can most likely be ported from previous brief work.");
-
+        //multiplies stats with eachother and if luck is higher than the other party it gets multiplied with the rest of th stats.
         rhs.luck = Random.Range(1, 4);
         lhs.luck = Random.Range(1, 4);
         int rhsPower= rhs.rhythm * rhs.luck * rhs.style;
         Debug.Log("rhs boggie battlestats" + rhsPower);
         int lhsPower = lhs.rhythm * lhs.luck * lhs.style;
         Debug.Log("NPC boogie battle stats " + lhsPower);
-
+        //based on stats the winner and outcome is decided
 
         if (rhs.luck == lhs.luck && rhs.luck < lhs.luck)
         {

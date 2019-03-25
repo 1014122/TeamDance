@@ -3,14 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Object that holds and represents a Dance Troupe or Team. A list of dancers on the roster, the ones still able to dance.
-/// It is also responsible for holding team specific data like where to line them up, their colors, and so on.
-/// 
-/// TODO: 
-///     This needs to handle adding and removing dancers from the active and/or all dancers lists
-///     This is where you might add additional feedback for team actions
-/// </summary>
+
 public class DanceTeam : MonoBehaviour
 {
     const float DancerSpaceing = 2;
@@ -27,8 +20,8 @@ public class DanceTeam : MonoBehaviour
     public void AddNewDancer(Character dancer)
     {
 
-        //TODOO for week 7 - do this first
-        // dancer is our input, dancer needs to be added to boths lists
+      
+      //dancers added to boths lists
         Debug.LogWarning("AddNewDancer called, it needs to put dancer in both lists and set the dancers team.");
         allDancers.Add(dancer);
         activeDancers.Add(dancer);
@@ -37,9 +30,9 @@ public class DanceTeam : MonoBehaviour
 
     public void RemoveFromActive(Character dancer)
     {
-        //TODOO for week 7 
+      
         // dancer is our input,
-        // remove from active dancers
+        // removes from active dancers
         dancer.mojoRemaining = 0;
         allDancers.Remove(dancer);
         activeDancers.Remove(dancer);

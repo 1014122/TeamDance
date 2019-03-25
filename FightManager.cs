@@ -42,12 +42,49 @@ public class FightManager : MonoBehaviour
 
         yield return new WaitForSeconds(fightAnimTime);
 
-        float outcome = 0;
+         float outcome = 0;
         //defaulting to draw 
         Character winner = lhs, defeated = rhs;
         Debug.LogWarning("Attack called, needs to use character stats to determine winner with win strength from 1 to -1. This can most likely be ported from previous brief work.");
 
+        rhs.luck = Random.Range(1, 4);
+        lhs.luck = Random.Range(1, 4);
+        int rhsPower= rhs.rhythm * rhs.luck * rhs.style;
+        Debug.Log("rhs boggie battlestats" + rhsPower);
+        int lhsPower = lhs.rhythm * lhs.luck * lhs.style;
+        Debug.Log("NPC boogie battle stats " + lhsPower);
 
+
+        if (rhs.luck == lhs.luck && rhs.luck < lhs.luck)
+        {
+            int criticalLuck;
+            criticalLuck = Random.Range(1, 20);
+            lhsPower = lhsPower * criticalLuck;
+        }
+        else
+        {
+            int criticalLuck = 1;
+            lhsPower = lhsPower * criticalLuck;
+        }
+        if (rhsPower > lhsPower)
+        {
+            outcome = 1;
+            winner = rhs;
+            defeated = lhs;
+            Debug.Log("rhs wins");
+        }
+        else if (lhsPower > rhsPower)
+        {
+            outcome = -1;
+            winner = lhs;
+            defeated = rhs;
+            Debug.Log("lhs wins");
+        }
+        else if (lhsPower == rhsPower)
+        {
+            outcome = 0;
+            Debug.Log("Draw");
+        }
         Debug.LogWarning("Attack called, may want to use the BattleLog to report the dancers and the outcome of their dance off.");
 
         var results = new FightResultData(winner, defeated, outcome);

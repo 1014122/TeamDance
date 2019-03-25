@@ -14,7 +14,7 @@ using UnityEngine.UI;
 public class DanceTeam : MonoBehaviour
 {
     const float DancerSpaceing = 2;
-
+    
     public Color teamColor = Color.white;
     [SerializeField]
     protected string danceTeamName;
@@ -26,12 +26,26 @@ public class DanceTeam : MonoBehaviour
 
     public void AddNewDancer(Character dancer)
     {
+
+        //TODOO for week 7 - do this first
+        // dancer is our input, dancer needs to be added to boths lists
         Debug.LogWarning("AddNewDancer called, it needs to put dancer in both lists and set the dancers team.");
+        allDancers.Add(dancer);
+        activeDancers.Add(dancer);
+        dancer.myTeam = this;
     }
 
     public void RemoveFromActive(Character dancer)
     {
+        //TODOO for week 7 
+        // dancer is our input,
+        // remove from active dancers
+        dancer.mojoRemaining = 0;
+        allDancers.Remove(dancer);
+        activeDancers.Remove(dancer);
+
         Debug.LogWarning("RemoveFromActive called, it needs to take the dancer out of the active list and possibly update selectedness, mojo etc.");
+        activeDancers.Remove(dancer);
     }
 
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Represents a single character, their stats, name and current mojo (or hp) in the dance battle.
@@ -14,7 +12,7 @@ public class Character : MonoBehaviour
 {
     public CharacterName charName;
 
-    [Range(0.0f,1.0f)]
+    [Range(0.0f, 1.0f)]
     public float mojoRemaining = 1;
 
     [Header("Stats")]
@@ -41,18 +39,25 @@ public class Character : MonoBehaviour
 
     public void InitialStats()
     {
-        // TODO - First, you can
+
         Debug.LogWarning("InitialStats called, needs to distribute points into stats. This should be able to be ported from previous brief work");
+        //random generating stats
+        level = 1;
+        luck = Random.Range(15, 30);
+        rhythm = Random.Range(5, 11);
+        style = Random.Range(4, 11);
+        xp = 0;
+
     }
 
     public void AssignName(CharacterName characterName)
     {
         charName = characterName;
-        if(nickText != null)
+        if (nickText != null)
         {
             nickText.text = charName.nickname;
             nickText.transform.LookAt(Camera.main.transform.position);
-            //text faces the wrong way so
+
             nickText.transform.Rotate(0, 180, 0);
         }
     }

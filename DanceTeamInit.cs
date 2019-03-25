@@ -33,6 +33,26 @@ public class DanceTeamInit : MonoBehaviour
     {
         Debug.LogWarning("InitTeams called, needs to generate names for the teams and set them with teamA.SetTroupeName");
 
+        // todo for week 7 - third
+        //set the troupe names for tem A and B
+       
+        teamA.SetTroupeName("Spirits");
+        teamB.SetTroupeName("Mob Physco");
+        CharacterName[] teamANames = nameGenerator.GenerateNames(3);
+        CharacterName[] teamBNames = nameGenerator.GenerateNames(3);
+
+        /*CharacterNameGenerator*/
+        
+        teamA.InitaliseTeamFromNames(dancerPrefab, 1, teamANames);
+         teamB.InitaliseTeamFromNames(dancerPrefab, 1, teamBNames);
+        
+        
+        
+        //get list of names from name generator
+
+        //-use the variable nameGenerator to generate names
+        // generate names function
+
         Debug.LogWarning("InitTeams called, needs to create character names via CharacterNameGenerator and get them into the team.InitaliseTeamFromNames");
     }
 }
